@@ -5,7 +5,7 @@ import MeiliSearch from "meilisearch";
 
 const client = new MeiliSearch({
   host: "https://sandbox-pool-xi7fypa-3bsbgmeayb75w.ovh-fr-2.platformsh.site/",
-  apiKey: "zdeGjerpSEiKBJZSMBZb",
+  apiKey: "131d7deada079ee0441cb2bc92c399501b5bcfa1678500562052d1e9cb079129",
 });
 
 const index = client.getIndex("nasa");
