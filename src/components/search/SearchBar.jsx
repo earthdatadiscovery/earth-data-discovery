@@ -23,6 +23,8 @@ export default function SearchBar() {
     console.log(state.result);
     console.log(state.timezone);
     console.log(state.facets);
+    console.log(process.env.REACT_APP_MEILI_HOST);
+    console.log(process.env.REACT_APP_MEILI_KEY);
   }, [state.result]);
 
   return (

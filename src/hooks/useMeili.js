@@ -13,8 +13,8 @@ import MeiliSearch from "meilisearch";
  */
 
 const client = new MeiliSearch({
-  host: "https://search.earthdatadiscovery.co",
-  apiKey: "aad144642e303c17b91c4202ffa6919dcbdedaa4db0a66a3147aaba058d35dc9",
+  host: process.env.REACT_APP_MEILI_HOST,
+  apiKey: process.env.REACT_APP_MEILI_KEY,
 });
 
 const index = client.getIndex("earthdata");
