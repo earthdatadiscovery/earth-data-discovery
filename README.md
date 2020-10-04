@@ -4,7 +4,13 @@
 
 <h1 align="center">EARTH DATA DISCOVERY</h1>
 
-## A repository from the [Earth Data Discovery Project](https://earthdatadiscovery.co/)
+<p align="center">
+  A repository from the <a href="https://earthdatadiscovery.co/">Earth Data Discovery Project</a>
+</p>
+<br>
+<p align="center">
+  <img src="assets/final-demo-edd-2020-space-apps-challenge.gif" alt="Earth Data Discovery" />
+</p>
 
 ## PROJECT
 
