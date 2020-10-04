@@ -26,4 +26,7 @@ const WrapperFilters = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   z-index: 2;
+  @media screen and (max-width: 760px) {
+    justify-content: center;
+  }
 `;

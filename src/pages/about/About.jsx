@@ -139,4 +139,5 @@ const WrapperHome = styled.div`
 
 const MainTitle = styled.h1`
   color: white;
+  text-align: center;
 `;
