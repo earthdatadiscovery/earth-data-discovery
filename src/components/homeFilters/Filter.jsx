@@ -14,29 +14,39 @@ export default function Filter({ name, filters }) {
     }
   };
   return (
-    <div>
-      <fieldset class="checkboxgroup">
-        <p>{name}</p>
+    <WrapperFilter>
+      <FilterName>{name}</FilterName>
+      <select multiple>
         {Object.entries(filters || {}).map(([namefilter, nbfilter], index) => {
           return (
-            <div namefilter={namefilter} key={`${index}-${namefilter}`}>
-              <label>
-                <input
-                  type="checkbox"
-                  name={namefilter}
-                  onChange={(event) =>
-                    onChangeCheck(event.target, namefilter, name)
-                  }
-                />
-              </label>
-              <label>{`${namefilter} (${nbfilter})`}</label>
-            </div>
+            <option
+              value=""
+              key={index + "filter"}
+            >{`${namefilter} (${nbfilter})`}</option>
+            // <div namefilter={namefilter} key={`${index}-${namefilter}`}>
+            //   <label>
+            //     <input
+            //       type="checkbox"
+            //       name={namefilter}
+            //       onChange={(event) =>
+            //         onChangeCheck(event.target, namefilter, name)
+            //       }
+            //     />
+            //   </label>
+            //   <label>{`${namefilter} (${nbfilter})`}</label>
+            // </div>
           );
         })}
-      </fieldset>
-    </div>
+      </select>
+    </WrapperFilter>
   );
 }
+
+const WrapperFilter = styled.div``;
+
+const FilterName = styled.span`
+  color: white;
+`;
 
 // const WrapperFilters = styled.div`
 //   display: ${(props) => (!props.topPosition ? `none` : "flex")};

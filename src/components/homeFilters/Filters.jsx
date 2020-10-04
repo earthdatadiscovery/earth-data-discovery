@@ -3,11 +3,11 @@ import styled from "@emotion/styled";
 import { StoreContext } from "../../store/index";
 import Filter from "./Filter";
 
-export default function Filters({ topPosition }) {
+export default function Filters({ showFilters }) {
   const { state, dispatch } = React.useContext(StoreContext);
 
   return (
-    <WrapperFilters topPosition={topPosition}>
+    <WrapperFilters showFilters={showFilters}>
       {Object.entries(state?.facets || {}).map(([key, filters]) => {
         return <Filter key={key} name={key} filters={filters} />;
       })}
@@ -19,12 +19,8 @@ export default function Filters({ topPosition }) {
 }
 
 const WrapperFilters = styled.div`
-  display: ${(props) => (!props.topPosition ? `none` : "flex")};
-  position: absolute;
-  bottom: ${(props) =>
-    props.topPosition ? `${props.topPosition}px` : "unset"};
+  display: ${(props) => (props.showFilters ? `flex` : "none")};
   width: 100%;
-  height: 40px;
   background-color: #3c3c3c;
   transition: all 300ms ease-in-out;
   /* justify-content: space-between; */

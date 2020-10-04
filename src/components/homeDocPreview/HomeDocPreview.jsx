@@ -13,7 +13,7 @@ export default function HomeDocPreview({ doc }) {
       </LinkButton>
       <WrapperHomeDocPreview>
         <WrapperDocImage>
-          <DocImage src={doc?.img_url} alt="doc_image" />
+          <DocImage src={require("../../assets/img001.png")} alt="doc_image" />
         </WrapperDocImage>
         <DocTitle>
           {HighlightText(doc?._formatted?.title, doc?._matchesInfo)}
@@ -92,7 +92,8 @@ const WrapperHomeDocPreview = styled.div`
   flex-direction: column;
   justify-content: space-between;
   border-radius: 18px;
-  box-shadow: 10px 10px 33px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+  box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
   padding: 10px;
   margin: 20px;
   transition: all 300ms ease-in-out;
