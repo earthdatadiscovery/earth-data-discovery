@@ -3,28 +3,27 @@ import styled from "@emotion/styled";
 import HighlightText from "../utils/HighlightText";
 
 export default function HomeDocPreview({ doc }) {
-
   // SET PLACEHOLDER IMAGE
 
   let img_list = {
-    "SCIOPS": "img001.png",
-    "AU_AADC": "img002.jpg",
-    "NOAA_NCEI": "img003.jpg",
-    "GHRC_CLOUD": "img004.jpg",
-    "LARC_ASDC": "img005.jpg",
-    "CDDIS": "img001.png",
-    "GES_DISC": "img002.jpg",
-    "ORNL_DAAC": "img003.jpg",
-    "NSIDC_ECS": "img004.jpg",
-  }
-  
-  let img_url = "img005.jpg"
-  if (img_list[doc.data_center] !== undefined){
+    SCIOPS: "img001.png",
+    AU_AADC: "img002.jpg",
+    NOAA_NCEI: "img003.jpg",
+    GHRC_CLOUD: "img004.jpg",
+    LARC_ASDC: "img005.jpg",
+    CDDIS: "img001.png",
+    GES_DISC: "img002.jpg",
+    ORNL_DAAC: "img003.jpg",
+    NSIDC_ECS: "img004.jpg",
+  };
+
+  let img_url = "img005.jpg";
+  if (img_list[doc.data_center] !== undefined) {
     img_url = img_list[doc.data_center];
   }
 
   // SET PLACEHOLDER IMAGE
-  
+
   return (
     <MainWrapperHomeDoc>
       <LinkButton
@@ -74,7 +73,7 @@ const WrapperCategories = styled.div`
 `;
 
 const Categorie = styled.span`
-  font-size: 9px;
+  font-size: 10px;
   border-radius: 3px;
   background-color: #3dd2cc;
   color: white;
@@ -84,7 +83,7 @@ const Categorie = styled.span`
 `;
 
 const SubCategorie = styled.span`
-  font-size: 9px;
+  font-size: 10px;
   border-radius: 3px;
   background-color: #66dcd7;
   color: white;
