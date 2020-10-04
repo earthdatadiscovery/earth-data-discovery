@@ -2,7 +2,7 @@
   <img src="assets/edd-logo-black.png" alt="Earth Data Discovery" width="440" height="270" />
 </p>
 
-<h1 align="center">EARTH DATA COLLECTOR</h1>
+<h1 align="center">EARTH DATA DISCOVERY</h1>
 
 ## A repository from the [Earth Data Discovery Project](https://earthdatadiscovery.co/)
 
