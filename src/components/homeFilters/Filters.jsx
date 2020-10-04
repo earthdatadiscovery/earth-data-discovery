@@ -8,12 +8,11 @@ export default function Filters({ showFilters }) {
 
   return (
     <WrapperFilters showFilters={showFilters}>
-      {Object.entries(state?.facets || {}).map(([key, filters]) => {
-        return <Filter key={key} name={key} filters={filters} />;
-      })}
-      {/* <span>Category 1</span>
-      <input type="checkbox" name="Bonjour" id="lol" />
-      <label for="lol">Bonjour</label> */}
+      {Object.entries(state?.facets || {})
+        .sort()
+        .map(([key, filters]) => {
+          return <Filter key={key} name={key} filters={filters} />;
+        })}
     </WrapperFilters>
   );
 }

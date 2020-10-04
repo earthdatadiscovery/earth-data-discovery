@@ -9,12 +9,21 @@ export default function HomeHeader({ children }) {
     <WrapperHomeHeader>
       <LinkAboutUs onClick={() => navigate("/about")}>About us</LinkAboutUs>
       <LinkHome onClick={() => navigate("")}>Home</LinkHome>
-      <ServerLinkUS href={"https://us.earthdatadiscovery.co/"}>🇺🇸</ServerLinkUS>
-      <ServerLinkEU href={"https://eu.earthdatadiscovery.co/"}>🇪🇺</ServerLinkEU>
+      <ServerLinkUS href={"https://us.earthdatadiscovery.co/"}>
+        <FlagImage src={require("../../assets/usa.svg")} alt="usa_flag" />
+      </ServerLinkUS>
+      <ServerLinkEU href={"https://eu.earthdatadiscovery.co/"}>
+        <FlagImage src={require("../../assets/eu.svg")} alt="eu_flag" />
+      </ServerLinkEU>
       {children}
     </WrapperHomeHeader>
   );
 }
+
+const FlagImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
 
 const WrapperHomeHeader = styled.div`
   position: relative;
@@ -56,26 +65,30 @@ const LinkHome = styled.div`
 `;
 
 const ServerLinkUS = styled.a`
+  width: 30px;
+  height: 30px;
   position: absolute;
-  top: 65px;
+  top: 70px;
   right: 15px;
   font-size: 25px;
   cursor: pointer;
   text-decoration: none;
   @media screen and (max-width: 760px) {
-    top: 110px;
+    top: 180px;
     right: 15px;
   }
 `;
 
 const ServerLinkEU = styled.a`
+  width: 32px;
+  height: 32px;
   position: absolute;
-  top: 65px;
+  top: 69px;
   right: 60px;
   font-size: 25px;
   cursor: pointer;
   text-decoration: none;
   @media screen and (max-width: 760px) {
-    top: 110px;
+    top: 179px;
   }
 `;

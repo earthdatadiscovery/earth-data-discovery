@@ -56,4 +56,7 @@ const FiltersArrow = styled.div`
 const DocImage = styled.img`
   height: 10vw;
   position: relative;
+  @media screen and (max-width: 760px) {
+    height: 100px;
+  }
 `;

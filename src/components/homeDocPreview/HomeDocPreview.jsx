@@ -5,7 +5,7 @@ import HighlightText from "../utils/HighlightText";
 export default function HomeDocPreview({ doc }) {
   // SET PLACEHOLDER IMAGE
 
-  let img_list = {
+  const img_list = {
     SCIOPS: "img001.png",
     AU_AADC: "img002.jpg",
     NOAA_NCEI: "img003.jpg",
@@ -36,11 +36,9 @@ export default function HomeDocPreview({ doc }) {
         <WrapperDocImage>
           <DocImage src={require(`../../assets/${img_url}`)} alt="doc_image" />
         </WrapperDocImage>
-        <DocTitle>
-          {HighlightText(doc?._formatted?.title, doc?._matchesInfo)}
-        </DocTitle>
+        <DocTitle>{HighlightText(doc?._formatted?.title)}</DocTitle>
         <DocDescription>
-          {HighlightText(doc?._formatted?.summary, doc?._matchesInfo)}
+          {HighlightText(doc?._formatted?.summary)}
         </DocDescription>
         <DocGranule>{`Granules : ${doc?._formatted?.granules}`}</DocGranule>
         <WrapperCategories>

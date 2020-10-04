@@ -17,22 +17,24 @@ export default function Filter({ name, filters }) {
     <WrapperFilter>
       <FilterName>{name}</FilterName>
       <WrapperFiltersSelected>
-        {Object.entries(filters || {}).map(([namefilter, nbfilter], index) => {
-          return (
-            <div namefilter={namefilter} key={`${index}-${namefilter}`}>
-              <label>
-                <input
-                  type="checkbox"
-                  name={namefilter}
-                  onChange={(event) =>
-                    onChangeCheck(event.target, namefilter, name)
-                  }
-                />
-              </label>
-              <FilterNameCheck>{`${namefilter} (${nbfilter})`}</FilterNameCheck>
-            </div>
-          );
-        })}
+        {Object.entries(filters || {})
+          .sort((a, b) => b[1] - a[1])
+          .map(([namefilter, nbfilter], index) => {
+            return (
+              <div namefilter={namefilter} key={`${index}-${namefilter}`}>
+                <label>
+                  <input
+                    type="checkbox"
+                    name={namefilter}
+                    onChange={(event) =>
+                      onChangeCheck(event.target, namefilter, name)
+                    }
+                  />
+                </label>
+                <FilterNameCheck>{`${namefilter} (${nbfilter})`}</FilterNameCheck>
+              </div>
+            );
+          })}
       </WrapperFiltersSelected>
     </WrapperFilter>
   );
