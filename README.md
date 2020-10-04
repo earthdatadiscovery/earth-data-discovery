@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/assets/edd-logo-black.png" alt="Earth Data Discovery" width="440" height="270" />
+  <img src="assets/edd-logo-black.png" alt="Earth Data Discovery" width="440" height="270" />
 </p>
 
 <h1 align="center">EARTH DATA DISCOVERY</h1>
