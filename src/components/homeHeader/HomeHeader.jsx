@@ -2,11 +2,11 @@ import React from "react";
 import styled from "@emotion/styled";
 import useNavigate from "../../hooks/useNavigate";
 
-export default function HomeHeader({ children }) {
+export default function HomeHeader({ about, children }) {
   const { navigate } = useNavigate();
 
   return (
-    <WrapperHomeHeader>
+    <WrapperHomeHeader about={about ? 1 : 0}>
       <LinkAboutUs onClick={() => navigate("/about")}>About us</LinkAboutUs>
       <LinkHome onClick={() => navigate("")}>Home</LinkHome>
       <ServerLinkUS href={"https://us.earthdatadiscovery.co/"}>
@@ -33,6 +33,9 @@ const WrapperHomeHeader = styled.div`
   align-items: center;
   padding: 20px 0;
   background-color: #3c4c56;
+  @media screen and (max-width: 760px) {
+    height: ${(props) => (props.about ? "200px" : "unset")};
+  }
 `;
 
 const LinkAboutUs = styled.div`

@@ -18,7 +18,10 @@ export default function Home() {
   return (
     <WrapperHome>
       <HomeHeader>
-        <DocImage src={require("../../assets/logo_edd.png")} alt="doc_image" />
+        <HeaderImage
+          src={require("../../assets/logo_edd.png")}
+          alt="doc_image"
+        />
         <SearchBar />
         <FiltersArrow onClick={() => setShowFilters((e) => !e)}>
           {showFilters ? "↑" : "↓"}
@@ -53,7 +56,7 @@ const FiltersArrow = styled.div`
   margin-top: 15px;
 `;
 
-const DocImage = styled.img`
+const HeaderImage = styled.img`
   height: 10vw;
   position: relative;
   @media screen and (max-width: 760px) {
