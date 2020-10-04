@@ -14,7 +14,7 @@ import MeiliSearch from "meilisearch";
 
 const client = new MeiliSearch({
   host: process.env.REACT_APP_MEILI_HOST,
-  apiKey: process.env.REACT_APP_MEILI_KEY,
+  apiKey: process.env.REACT_APP_MEILI_PUBLIC_KEY,
 });
 
 const index = client.getIndex("earthdata");

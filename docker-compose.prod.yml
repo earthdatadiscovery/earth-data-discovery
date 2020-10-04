@@ -4,10 +4,13 @@ services:
     build:
       context: .
       dockerfile: .docker/client/Dockerfile.prod
+      args:
+        meili_host: ${MEILI_HOST}
+        meili_public_key: ${MEILI_PUBLIC_KEY}
     container_name: edd-client-prod
     environment:
       REACT_APP_MEILI_HOST: ${MEILI_HOST}
-      REACT_APP_MEILI_KEY: ${MEILI_PUBLIC_KEY}
+      REACT_APP_MEILI_PUBLIC_KEY: ${MEILI_PUBLIC_KEY}
     ports:
       - "8000:80"
     restart: always

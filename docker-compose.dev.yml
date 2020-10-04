@@ -7,7 +7,7 @@ services:
     container_name: edd-client-dev
     environment:
       REACT_APP_MEILI_HOST: ${MEILI_HOST}
-      REACT_APP_MEILI_KEY: ${MEILI_PUBLIC_KEY}
+      REACT_APP_MEILI_PUBLIC_KEY: ${MEILI_PUBLIC_KEY}
     ports:
       - "3000:3000"
     restart: always

@@ -1,4 +1,8 @@
 FROM node:14.9.0-alpine as build
+ARG meili_host
+ARG meili_public_key
+ENV REACT_APP_MEILI_HOST=$meili_host
+ENV REACT_APP_MEILI_PUBLIC_KEY=$meili_public_key
 
 WORKDIR /edd
 COPY package*.json ./
