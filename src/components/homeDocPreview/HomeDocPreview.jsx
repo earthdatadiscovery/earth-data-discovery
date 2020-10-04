@@ -9,7 +9,7 @@ export default function HomeDocPreview({ doc }) {
         target="_blank"
         href={`https://cmr.earthdata.nasa.gov/search/concepts/${doc?.id}`}
       >
-        Link
+        Discover
       </LinkButton>
       <WrapperHomeDocPreview>
         <WrapperDocImage>
@@ -21,6 +21,7 @@ export default function HomeDocPreview({ doc }) {
         <DocDescription>
           {HighlightText(doc?._formatted?.summary, doc?._matchesInfo)}
         </DocDescription>
+        <DocGranule>{`Granules : ${doc?._formatted?.granules}`}</DocGranule>
         <WrapperCategories>
           {Object.entries(doc?._formatted?.subcategories || {}).map(
             ([key, filters], index) => {
@@ -51,7 +52,8 @@ const WrapperCategories = styled.div`
 `;
 
 const Categorie = styled.span`
-  font-size: 8px;
+  font-size: 9px;
+  border-radius: 3px;
   background-color: #3dd2cc;
   color: white;
   padding: 3px;
@@ -60,7 +62,8 @@ const Categorie = styled.span`
 `;
 
 const SubCategorie = styled.span`
-  font-size: 8px;
+  font-size: 9px;
+  border-radius: 3px;
   background-color: #66dcd7;
   color: white;
   padding: 3px;
@@ -118,7 +121,7 @@ const DocImage = styled.img`
 const DocTitle = styled.div`
   * {
     font-size: 18px;
-    color: #3c3c3c;
+    color: #3c4c56;
     font-weight: bold;
     word-break: break-word;
   }
@@ -127,9 +130,16 @@ const DocTitle = styled.div`
 const DocDescription = styled.div`
   * {
     font-size: 18px;
-    color: #3c3c3c;
+    color: #3c4c56;
     word-break: break-word;
   }
+`;
+
+const DocGranule = styled.div`
+  font-size: 12px;
+  font-weight: bold;
+  color: #3c4c56;
+  word-break: break-word;
 `;
 
 const LinkButton = styled.a`
@@ -146,4 +156,5 @@ const LinkButton = styled.a`
   cursor: pointer;
   z-index: 2;
   text-decoration: none;
+  border-radius: 3px;
 `;

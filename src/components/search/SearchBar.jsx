@@ -9,9 +9,7 @@ export default function SearchBar() {
   const { state, dispatch } = React.useContext(StoreContext);
 
   React.useEffect(() => {
-    console.log("IM SEARCHING");
     search({
-      // offset: 20,
       toSearch: searchedValue,
       attributesToCrop: ["summary"],
       cropLength: 50,
@@ -26,9 +24,7 @@ export default function SearchBar() {
   // }, [state.facetFilters]);
 
   React.useEffect(() => {
-    // console.log(state.result);
-    // console.log(state.timezone);
-    console.log(state.facetFilters);
+    console.log(state.result);
   }, [state.result]);
 
   return (

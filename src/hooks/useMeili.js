@@ -24,7 +24,7 @@ export function useMeili() {
 
   // Methods
   async function search({
-    toSearch = "",
+    toSearch = null,
     offset = null,
     limit = null,
     filters = null,
@@ -37,7 +37,7 @@ export function useMeili() {
     matches = null,
   }) {
     if (facetFilters != null) facetFilters = getCorrectFacets(facetFilters);
-
+    if (toSearch === "") toSearch = null;
     const search = await index.search(toSearch, {
       offset,
       limit,
@@ -93,14 +93,11 @@ export function useMeili() {
     const test = triName.map((element) => {
       const tab = Object.entries(filtersStore || {}).map(([key, value]) => {
         if (element === value.name) {
-          console.log("I RETURNED", key);
           return key;
         } else return;
       });
       return tab.filter(Boolean);
     });
-
-    console.log("TESTT", test);
 
     return test.length > 0 ? test : null;
   }

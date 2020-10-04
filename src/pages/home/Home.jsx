@@ -18,13 +18,13 @@ export default function Home() {
   return (
     <WrapperHome>
       <HomeHeader>
-        <MainTitle>Earth Data Discovery</MainTitle>
+        <DocImage src={require("../../assets/logo_edd.png")} alt="doc_image" />
         <SearchBar />
         <FiltersArrow onClick={() => setShowFilters((e) => !e)}>
           {showFilters ? "↑" : "↓"}
         </FiltersArrow>
-        <Filters showFilters={showFilters} />
       </HomeHeader>
+      <Filters showFilters={showFilters} />
       <RenderSearchResult />
     </WrapperHome>
   );
@@ -33,16 +33,13 @@ export default function Home() {
 const WrapperHome = styled.div`
   width: 100%;
   height: 100%;
-`;
-
-const MainTitle = styled.h1`
-  color: white;
+  overflow: hidden;
 `;
 
 const FiltersArrow = styled.div`
   padding: 10px;
-  background-color: white;
-  color: #3c3c3c;
+  background-color: #3dd2cc;
+  color: #3c4c56;
   border-radius: 50%;
   width: 15px;
   height: 15px;
@@ -50,5 +47,10 @@ const FiltersArrow = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 15px;
+`;
+
+const DocImage = styled.img`
+  height: 10vw;
+  position: relative;
 `;

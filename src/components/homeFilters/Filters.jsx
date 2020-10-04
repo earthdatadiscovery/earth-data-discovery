@@ -21,8 +21,9 @@ export default function Filters({ showFilters }) {
 const WrapperFilters = styled.div`
   display: ${(props) => (props.showFilters ? `flex` : "none")};
   width: 100%;
-  background-color: #3c3c3c;
+  background-color: #3c4c56;
   transition: all 300ms ease-in-out;
-  /* justify-content: space-between; */
-  /* align-items: center; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 2;
 `;

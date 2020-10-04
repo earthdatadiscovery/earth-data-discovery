@@ -16,35 +16,49 @@ export default function Filter({ name, filters }) {
   return (
     <WrapperFilter>
       <FilterName>{name}</FilterName>
-      <select multiple>
+      <WrapperFiltersSelected>
         {Object.entries(filters || {}).map(([namefilter, nbfilter], index) => {
           return (
-            <option
-              value=""
-              key={index + "filter"}
-            >{`${namefilter} (${nbfilter})`}</option>
-            // <div namefilter={namefilter} key={`${index}-${namefilter}`}>
-            //   <label>
-            //     <input
-            //       type="checkbox"
-            //       name={namefilter}
-            //       onChange={(event) =>
-            //         onChangeCheck(event.target, namefilter, name)
-            //       }
-            //     />
-            //   </label>
-            //   <label>{`${namefilter} (${nbfilter})`}</label>
-            // </div>
+            <div namefilter={namefilter} key={`${index}-${namefilter}`}>
+              <label>
+                <input
+                  type="checkbox"
+                  name={namefilter}
+                  onChange={(event) =>
+                    onChangeCheck(event.target, namefilter, name)
+                  }
+                />
+              </label>
+              <FilterNameCheck>{`${namefilter} (${nbfilter})`}</FilterNameCheck>
+            </div>
           );
         })}
-      </select>
+      </WrapperFiltersSelected>
     </WrapperFilter>
   );
 }
 
-const WrapperFilter = styled.div``;
+const WrapperFiltersSelected = styled.div`
+  width: 220px;
+  height: 150px;
+  overflow-y: scroll;
+`;
 
-const FilterName = styled.span`
+const WrapperFilter = styled.div`
+  padding: 15px;
+`;
+
+const FilterName = styled.div`
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: #3dd2cc;
+  padding: 5px 10px;
+  border-radius: 3px;
+`;
+
+const FilterNameCheck = styled.span`
+  font-size: 10px;
   color: white;
 `;
 

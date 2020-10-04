@@ -5,7 +5,7 @@ import { StoreContext } from "../../store/index";
 import HomeDocPreview from "./../../components/homeDocPreview/HomeDocPreview";
 
 export default function RenderSearchResult() {
-  const { state, dispatch } = React.useContext(StoreContext);
+  const { state } = React.useContext(StoreContext);
   const [scrollOffsetSteps, setScrollOffsetSteps] = React.useState(20);
   const { search } = useMeili();
   const container = React.useRef(null);
@@ -34,17 +34,12 @@ export default function RenderSearchResult() {
     <WrapperSearchResult
       ref={container}
       onScroll={handleScroll}
-      noResult={
-        !state.searchValue.length ||
-        (state.searchValue.length && !state.result.length)
-      }
+      noResult={state?.searchValue?.length && !state?.result?.length}
     >
-      {!state.searchValue.length ? (
-        <ResultMessage>Start your search</ResultMessage>
-      ) : state.searchValue.length && !state.result.length ? (
+      {state?.searchValue?.length && !state?.result?.length ? (
         <ResultMessage>No results for your search</ResultMessage>
       ) : (
-        state.result.map((doc, index) => {
+        state?.result.map((doc, index) => {
           return <HomeDocPreview doc={doc} key={index + "list home docs"} />;
         })
       )}
@@ -63,6 +58,6 @@ const WrapperSearchResult = styled.div`
 `;
 
 const ResultMessage = styled.h3`
-  color: #3c3c3c;
+  color: #3c4c56;
   font-size: 18px;
 `;
