@@ -1,18 +1,34 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { StoreContext } from "../../store/index";
+import { addFilter, removeFilter } from "../../actions/store";
 
 export default function Filter({ name, filters }) {
   const { state, dispatch } = React.useContext(StoreContext);
 
+  const onChangeCheck = (target, filter, name) => {
+    if (target.checked) {
+      // console.log("YOU CHECKED FILTER : ", name, ":", filter);
+      dispatch(addFilter(name, filter));
+    } else {
+      // console.log("YOU UNCHECKED CHECKED FILTER : ", name, ":", filter);
+      dispatch(removeFilter(name, filter));
+    }
+  };
   return (
     <div>
       <span>{name}</span>
-      {Object.entries(filters || {}).map(([key, filter]) => {
+      {Object.entries(filters || {}).map(([namefilter, nbfilter]) => {
         return (
-          <div key={key}>
-            <input type="checkbox" name={key} />
-            <label>{`${key} (${filter})`}</label>
+          <div namefilter={namefilter}>
+            <input
+              type="checkbox"
+              name={namefilter}
+              onChange={(event) =>
+                onChangeCheck(event.target, namefilter, name)
+              }
+            />
+            <label>{`${namefilter} (${nbfilter})`}</label>
           </div>
         );
       })}

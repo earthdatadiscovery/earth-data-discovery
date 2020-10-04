@@ -36,6 +36,10 @@ export function useMeili() {
     attributesToHighlight = null,
     matches = null,
   }) {
+    // console.log("facetfilters : ", facetFilters);
+    facetFilters = getCorrectFacets();
+    // console.log("facetfilters : ", facetFilters);
+
     const search = await index.search(toSearch, {
       offset,
       limit,
@@ -72,6 +76,17 @@ export function useMeili() {
       facetsDistribution: ["*"],
     });
     dispatch(setFacets(res.facetsDistribution));
+  }
+
+  function getCorrectFacets() {
+    const filtersStore = state.facetFilters;
+    const finalFilters = [];
+    const obj = Object.entries(filtersStore || {}).map(([key, value]) => {
+      return value.filter;
+    });
+    console.log("OBJJJJJ", obj);
+
+    return null;
   }
 
   return {

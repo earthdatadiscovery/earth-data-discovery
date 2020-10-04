@@ -15,16 +15,15 @@ export default function SearchBar() {
       attributesToCrop: ["summary"],
       cropLength: 50,
       attributesToHighlight: ["*"],
+      facetFilters: state.facetFilters,
       matches: true,
     });
   }, [searchedValue]);
 
   React.useEffect(() => {
-    console.log(state.result);
-    console.log(state.timezone);
-    console.log(state.facets);
-    console.log(process.env.REACT_APP_MEILI_HOST);
-    console.log(process.env.REACT_APP_MEILI_KEY);
+    // console.log(state.result);
+    // console.log(state.timezone);
+    // console.log(state.facets);
   }, [state.result]);
 
   return (
