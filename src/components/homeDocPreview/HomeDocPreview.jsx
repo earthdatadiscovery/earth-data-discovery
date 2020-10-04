@@ -3,6 +3,28 @@ import styled from "@emotion/styled";
 import HighlightText from "../utils/HighlightText";
 
 export default function HomeDocPreview({ doc }) {
+
+  // SET PLACEHOLDER IMAGE
+
+  let img_list = {
+    "SCIOPS": "img001.png",
+    "AU_AADC": "img002.jpg",
+    "NOAA_NCEI": "img003.jpg",
+    "GHRC_CLOUD": "img004.jpg",
+    "LARC_ASDC": "img005.jpg",
+    "CDDIS": "img001.png",
+    "GES_DISC": "img002.jpg",
+    "ORNL_DAAC": "img003.jpg",
+    "NSIDC_ECS": "img004.jpg",
+  }
+  
+  let img_url = "img005.jpg"
+  if (img_list[doc.data_center] !== undefined){
+    img_url = img_list[doc.data_center];
+  }
+
+  // SET PLACEHOLDER IMAGE
+  
   return (
     <MainWrapperHomeDoc>
       <LinkButton
@@ -13,7 +35,7 @@ export default function HomeDocPreview({ doc }) {
       </LinkButton>
       <WrapperHomeDocPreview>
         <WrapperDocImage>
-          <DocImage src={require("../../assets/img001.png")} alt="doc_image" />
+          <DocImage src={require(`../../assets/${img_url}`)} alt="doc_image" />
         </WrapperDocImage>
         <DocTitle>
           {HighlightText(doc?._formatted?.title, doc?._matchesInfo)}
