@@ -2,8 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 
 export default function HighlightText(toFormat, matches) {
-  const toFormat2 = toFormat.replace("<em>", "<mark>");
-  const toFormat3 = toFormat2.replace("</em>", "</mark>");
+  const toFormat2 = toFormat.replaceAll("<em>", "<mark>");
+  const toFormat3 = toFormat2.replaceAll("</em>", "</mark>");
 
   return (
     <>

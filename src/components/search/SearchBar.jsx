@@ -23,9 +23,7 @@ export default function SearchBar() {
   //   getFacets();
   // }, [state.facetFilters]);
 
-  React.useEffect(() => {
-    console.log(state.result);
-  }, [state.result]);
+  React.useEffect(() => {}, [state.result]);
 
   return (
     <SearchInput
