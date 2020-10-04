@@ -1,3 +1,32 @@
+<p align="center">
+  <img src="assets/edd-logo-black.png" alt="Earth Data Discovery" width="440" height="270" />
+</p>
+
+<h1 align="center">EARTH DATA DISCOVERY</h1>
+
+## A repository from the [Earth Data Discovery Project](https://earthdatadiscovery.co/)
+
+## PROJECT
+
+This repository is part of a project created by the [Earth Data Discovery Team](https://2020.spaceappschallenge.org/challenges/connect/data-discovery-earth-science/teams/edd/members) for the [2020 Space Apps Challenge](https://2020.spaceappschallenge.org).
+
+### The Challenge
+
+Our team decided to address the [Data Discovery for Earth Science](https://2020.spaceappschallenge.org/challenges/connect/data-discovery-earth-science/details) Challenge":
+
+> This challenge will ask you to devise a tool or technique to guide users to relevant datasets to study specific events.
+
+The goal of our project is to make Earth Science Data easily accessible for everyone. 
+We think that finding a database for any project should be a simple, fast and straight forward process, that doesn't require lots of expertise or previous knowledge.
+In order to reach this goal, we provide a search and visualization interface, providing information about publicly available databases from the main Space Agencies over the world.
+
+Our main goals:
+
+- Provide an instant, relevant and typo tolerant search engine for Earth Science datasets.
+- Provide an intuitive, simple yet rich interface for finding the dataset that fit your needs.
+
+<h1 align="center">ABOUT THIS REPOSITORY</h1>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
