@@ -21,6 +21,7 @@ export default function SearchBar() {
 
   React.useEffect(() => {
     console.log(state.result);
+    console.log(state.timezone);
     console.log(state.facets);
   }, [state.result]);
 

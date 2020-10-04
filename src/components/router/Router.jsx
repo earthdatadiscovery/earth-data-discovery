@@ -2,8 +2,20 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "../../pages/home/Home";
 import About from "../../pages/about/About";
+import useNavigate from "../../hooks/useNavigate";
+import { StoreContext } from "../../store/index";
 
 export default function Router() {
+  const { state, dispatch } = React.useContext(StoreContext);
+  const { navigate } = useNavigate();
+
+  React.useEffect(() => {
+    if (state?.timezone.split("/")[0] === "America") {
+      window.location.href = "https://us.earthdatadiscovery.co";
+      return null;
+    }
+  }, [state.timezone]);
+
   return (
     <BrowserRouter>
       <Switch>

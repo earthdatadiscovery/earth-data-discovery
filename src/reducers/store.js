@@ -9,6 +9,7 @@ export const initialState = {
   result: [],
   searchValue: "",
   facets: [],
+  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
 };
 
 export default function reducer(state = initialState, action) {
