@@ -78,7 +78,7 @@ const MainWrapperHomeDoc = styled.div`
       opacity: 1;
     }
     div {
-      filter: blur(5px);
+      filter: blur(2px);
       box-shadow: none;
     }
   }
