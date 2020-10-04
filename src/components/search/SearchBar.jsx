@@ -1,42 +1,48 @@
 import React from "react";
 import { StoreContext } from "../../store/index";
-import { setResult } from "../../actions/store";
-import MeiliSearch from "meilisearch";
-
-const client = new MeiliSearch({
-  host: "https://sandbox-pool-xi7fypa-3bsbgmeayb75w.ovh-fr-2.platformsh.site/",
-  apiKey: "131d7deada079ee0441cb2bc92c399501b5bcfa1678500562052d1e9cb079129",
-});
-
-const index = client.getIndex("nasa");
+import styled from "@emotion/styled";
+import { useMeili } from "../../hooks/useMeili";
 
 export default function SearchBar() {
-  const [searchedWord, setSearchedWord] = React.useState("");
+  const [searchedValue, setSearchedValue] = React.useState("");
+  const { search } = useMeili();
   const { state, dispatch } = React.useContext(StoreContext);
 
   React.useEffect(() => {
-    // Create an scoped async function in the hook
-    async function searchWithMeili() {
-        const search = await index.search(searchedWord);
-        dispatch(setResult(search));
-    }
-    // // Execute the created function directly
-    searchWithMeili();
-  }, [searchedWord]);
+    search({
+      // offset: 20,
+      toSearch: searchedValue,
+      attributesToCrop: ["summary"],
+      cropLength: 50,
+      attributesToHighlight: ["*"],
+      matches: true,
+    });
+  }, [searchedValue]);
 
   React.useEffect(() => {
     console.log(state.result);
+    console.log(state.facets);
   }, [state.result]);
 
   return (
-    <div> 
-      <input
-        type="text"
-        value={searchedWord}
-        onChange={(event) => setSearchedWord(event.target.value)}
-        className="px-6 py-4 w-full text-black"
-        placeholder="Search"
-      />
-  </div>
+    <SearchInput
+      type="text"
+      value={searchedValue}
+      onChange={(event) => setSearchedValue(event.target.value)}
+      className="px-6 py-4 w-full text-black"
+      placeholder="Search"
+    />
   );
 }
+
+const SearchInput = styled.input`
+  width: 60%;
+  height: 40px;
+  border-radius: 9px;
+  border: none;
+  padding-left: 15px;
+  font-size: 21px;
+  @media screen and (max-width: 760px) {
+    width: 80%;
+  }
+`;
