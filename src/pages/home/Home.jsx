@@ -23,7 +23,7 @@ export default function Home() {
         <FiltersArrow onClick={() => setShowFilters((e) => !e)}>
           {showFilters ? "↑" : "↓"}
         </FiltersArrow>
-        <Filters />
+        <Filters topPosition={showFilters ? -40 : showFilters} />
       </HomeHeader>
       <RenderSearchResult />
     </WrapperHome>

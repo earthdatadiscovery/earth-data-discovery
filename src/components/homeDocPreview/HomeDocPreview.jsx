@@ -14,6 +14,17 @@ export default function HomeDocPreview({ doc }) {
       <DocDescription>
         {HighlightText(doc?._formatted?.summary, doc?._matchesInfo)}
       </DocDescription>
+      {Object.entries(doc?._formatted?.subcategories || {}).map(
+        ([key, filters]) => {
+          {
+            /* <Category>TODO</Category> */
+          }
+          filters.map((subcategory) => {
+            return <span>{subcategory}</span>;
+          });
+          return <span>{key}</span>;
+        },
+      )}
       <LinkButton
         href={`https://cmr.earthdata.nasa.gov/search/concepts/${doc?.id}`}
       >

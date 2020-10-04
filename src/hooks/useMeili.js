@@ -13,8 +13,8 @@ import MeiliSearch from "meilisearch";
  */
 
 const client = new MeiliSearch({
-  host: "https://sandbox-pool-xi7fypa-3bsbgmeayb75w.ovh-fr-2.platformsh.site/",
-  apiKey: "131d7deada079ee0441cb2bc92c399501b5bcfa1678500562052d1e9cb079129",
+  host: "https://sandbox-pool-6q63wsa-3bsbgmeayb75w.ovh-fr-2.platformsh.site/",
+  apiKey: "8642eb4f13c92c840df29f6d24cac875f4f26c159e53b150bd879a004d8769be",
 });
 
 const index = client.getIndex("earthdata");
