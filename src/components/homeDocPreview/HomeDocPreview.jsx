@@ -4,51 +4,108 @@ import HighlightText from "../utils/HighlightText";
 
 export default function HomeDocPreview({ doc }) {
   return (
-    <WrapperHomeDocPreview>
-      {/* <WrapperDocImage>
-        <DocImage src={doc?.img_url} alt="doc_image" />
-      </WrapperDocImage> */}
-      <DocTitle>
-        {HighlightText(doc?._formatted?.title, doc?._matchesInfo)}
-      </DocTitle>
-      <DocDescription>
-        {HighlightText(doc?._formatted?.summary, doc?._matchesInfo)}
-      </DocDescription>
-      {Object.entries(doc?._formatted?.subcategories || {}).map(
-        ([key, filters]) => {
-          {
-            /* <Category>TODO</Category> */
-          }
-          filters.map((subcategory) => {
-            return <span>{subcategory}</span>;
-          });
-          return <span>{key}</span>;
-        },
-      )}
+    <MainWrapperHomeDoc>
       <LinkButton
+        target="_blank"
         href={`https://cmr.earthdata.nasa.gov/search/concepts/${doc?.id}`}
       >
         Link
       </LinkButton>
-    </WrapperHomeDocPreview>
+      <WrapperHomeDocPreview>
+        <WrapperDocImage>
+          <DocImage src={doc?.img_url} alt="doc_image" />
+        </WrapperDocImage>
+        <DocTitle>
+          {HighlightText(doc?._formatted?.title, doc?._matchesInfo)}
+        </DocTitle>
+        <DocDescription>
+          {HighlightText(doc?._formatted?.summary, doc?._matchesInfo)}
+        </DocDescription>
+        <WrapperCategories>
+          {Object.entries(doc?._formatted?.subcategories || {}).map(
+            ([key, filters], index) => {
+              if (index > 1) return;
+              {
+                /* <Category>TODO</Category> */
+              }
+              filters.map((subcategory, index) => {
+                if (index > 1) return;
+                return (
+                  <SubCategorie key={`${index}-${subcategory}`}>
+                    {subcategory}
+                  </SubCategorie>
+                );
+              });
+              return <Categorie key={`${index}-${key}`}>{key}</Categorie>;
+            },
+          )}
+        </WrapperCategories>
+      </WrapperHomeDocPreview>
+    </MainWrapperHomeDoc>
   );
 }
 
+const WrapperCategories = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Categorie = styled.span`
+  font-size: 8px;
+  background-color: #3dd2cc;
+  color: white;
+  padding: 3px;
+  tex-align: center;
+  margin-left: 5px;
+`;
+
+const SubCategorie = styled.span`
+  font-size: 8px;
+  background-color: #66dcd7;
+  color: white;
+  padding: 3px;
+  tex-align: center;
+`;
+
+const MainWrapperHomeDoc = styled.div`
+  position: relative;
+  a {
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+  }
+  &:hover {
+    a {
+      opacity: 1;
+    }
+    div {
+      filter: blur(5px);
+      box-shadow: none;
+    }
+  }
+`;
+
 const WrapperHomeDocPreview = styled.div`
   width: 300px;
-  height: 300px;
+  height: 420px;
   border-radius: 9px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 18px;
+  box-shadow: 10px 10px 33px 0px rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  margin: 20px;
+  transition: all 300ms ease-in-out;
+  overflow: hidden;
 `;
 
-// const WrapperDocImage = styled.div`
-//   position: relative;
-//   width: 300px;
-//   height: 200px;
-//   overflow: hidden;
-// `;
+const WrapperDocImage = styled.div`
+  position: relative;
+  width: 330px;
+  height: 190px;
+  overflow: hidden;
+  transform: translateX(-15px) translateY(-15px);
+`;
 
 const DocImage = styled.img`
   width: 100%;
@@ -59,7 +116,7 @@ const DocImage = styled.img`
 
 const DocTitle = styled.div`
   * {
-    font-size: 22px;
+    font-size: 18px;
     color: #3c3c3c;
     font-weight: bold;
     word-break: break-word;
@@ -75,10 +132,17 @@ const DocDescription = styled.div`
 `;
 
 const LinkButton = styled.a`
-  background-color: #3c3c3c;
+  position: absolute;
+  width: 80px;
+  background-color: #3dd2cc;
   color: white;
   padding: 10px 15px;
-  border-radius: 18px;
   display: flex;
   justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+  text-decoration: none;
 `;

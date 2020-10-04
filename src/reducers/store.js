@@ -31,7 +31,7 @@ export default function reducer(state = initialState, action) {
     case ADD_FILTER:
       const filter = action.filter;
       const name = action.name;
-      var filters = state.facetFilters;
+      var filters = { ...state.facetFilters };
       filters[`${name}:${filter}`] = {
         name: action.name,
         filter: action.filter,
@@ -43,7 +43,7 @@ export default function reducer(state = initialState, action) {
     case REMOVE_FILTER:
       const filte = action.filter;
       const nam = action.name;
-      var newFilters = state.facetFilters;
+      var newFilters = { ...state.facetFilters };
       delete newFilters[`${nam}:${filte}`];
       return { ...state, facetFilters: newFilters };
     default:

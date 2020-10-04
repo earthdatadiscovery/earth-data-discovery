@@ -8,30 +8,32 @@ export default function Filter({ name, filters }) {
 
   const onChangeCheck = (target, filter, name) => {
     if (target.checked) {
-      // console.log("YOU CHECKED FILTER : ", name, ":", filter);
       dispatch(addFilter(name, filter));
     } else {
-      // console.log("YOU UNCHECKED CHECKED FILTER : ", name, ":", filter);
       dispatch(removeFilter(name, filter));
     }
   };
   return (
     <div>
-      <span>{name}</span>
-      {Object.entries(filters || {}).map(([namefilter, nbfilter]) => {
-        return (
-          <div namefilter={namefilter}>
-            <input
-              type="checkbox"
-              name={namefilter}
-              onChange={(event) =>
-                onChangeCheck(event.target, namefilter, name)
-              }
-            />
-            <label>{`${namefilter} (${nbfilter})`}</label>
-          </div>
-        );
-      })}
+      <fieldset class="checkboxgroup">
+        <p>{name}</p>
+        {Object.entries(filters || {}).map(([namefilter, nbfilter], index) => {
+          return (
+            <div namefilter={namefilter} key={`${index}-${namefilter}`}>
+              <label>
+                <input
+                  type="checkbox"
+                  name={namefilter}
+                  onChange={(event) =>
+                    onChangeCheck(event.target, namefilter, name)
+                  }
+                />
+              </label>
+              <label>{`${namefilter} (${nbfilter})`}</label>
+            </div>
+          );
+        })}
+      </fieldset>
     </div>
   );
 }

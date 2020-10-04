@@ -59,6 +59,7 @@ const WrapperSearchResult = styled.div`
   flex-wrap: wrap;
   max-height: 80%;
   overflow-y: scroll;
+  padding: 20px;
 `;
 
 const ResultMessage = styled.h3`

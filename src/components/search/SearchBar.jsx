@@ -5,10 +5,11 @@ import { useMeili } from "../../hooks/useMeili";
 
 export default function SearchBar() {
   const [searchedValue, setSearchedValue] = React.useState("");
-  const { search } = useMeili();
+  const { search, getFacets } = useMeili();
   const { state, dispatch } = React.useContext(StoreContext);
 
   React.useEffect(() => {
+    console.log("IM SEARCHING");
     search({
       // offset: 20,
       toSearch: searchedValue,
@@ -18,12 +19,16 @@ export default function SearchBar() {
       facetFilters: state.facetFilters,
       matches: true,
     });
-  }, [searchedValue]);
+  }, [searchedValue, state.facetFilters]);
+
+  // React.useEffect(() => {
+  //   getFacets();
+  // }, [state.facetFilters]);
 
   React.useEffect(() => {
     // console.log(state.result);
     // console.log(state.timezone);
-    // console.log(state.facets);
+    console.log(state.facetFilters);
   }, [state.result]);
 
   return (

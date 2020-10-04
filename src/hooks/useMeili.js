@@ -36,9 +36,7 @@ export function useMeili() {
     attributesToHighlight = null,
     matches = null,
   }) {
-    // console.log("facetfilters : ", facetFilters);
-    facetFilters = getCorrectFacets();
-    // console.log("facetfilters : ", facetFilters);
+    if (facetFilters != null) facetFilters = getCorrectFacets(facetFilters);
 
     const search = await index.search(toSearch, {
       offset,
@@ -72,8 +70,10 @@ export function useMeili() {
   }
 
   async function getFacets() {
+    const facetFilters = getCorrectFacets();
     const res = await index.search(null, {
       facetsDistribution: ["*"],
+      facetFilters,
     });
     dispatch(setFacets(res.facetsDistribution));
   }
@@ -81,12 +81,28 @@ export function useMeili() {
   function getCorrectFacets() {
     const filtersStore = state.facetFilters;
     const finalFilters = [];
-    const obj = Object.entries(filtersStore || {}).map(([key, value]) => {
-      return value.filter;
-    });
-    console.log("OBJJJJJ", obj);
 
-    return null;
+    const arrayName = Object.entries(filtersStore || {}).map(([key, value]) => {
+      return value.name;
+    });
+
+    const triName = arrayName.filter((name, index) => {
+      return arrayName.indexOf(name) === index;
+    });
+
+    const test = triName.map((element) => {
+      const tab = Object.entries(filtersStore || {}).map(([key, value]) => {
+        if (element === value.name) {
+          console.log("I RETURNED", key);
+          return key;
+        } else return;
+      });
+      return tab.filter(Boolean);
+    });
+
+    console.log("TESTT", test);
+
+    return test.length > 0 ? test : null;
   }
 
   return {
