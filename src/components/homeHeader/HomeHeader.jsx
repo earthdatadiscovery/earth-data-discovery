@@ -34,6 +34,11 @@ const LinkAboutUs = styled.div`
   right: 15px;
   text-decoration: none;
   cursor: pointer;
+  @media screen and (max-width: 760px) {
+    top: 15px;
+    right: "unset";
+    left: 20px;
+  }
 `;
 
 const LinkHome = styled.div`
@@ -44,6 +49,10 @@ const LinkHome = styled.div`
   right: 38px;
   text-decoration: none;
   cursor: pointer;
+  @media screen and (max-width: 760px) {
+    top: 15px;
+    right: 20px;
+  }
 `;
 
 const ServerLinkUS = styled.div`
@@ -53,6 +62,10 @@ const ServerLinkUS = styled.div`
   font-size: 25px;
   cursor: pointer;
   text-decoration: none;
+  @media screen and (max-width: 760px) {
+    top: 110px;
+    right: 15px;
+  }
 `;
 
 const ServerLinkEU = styled.a`
@@ -62,4 +75,7 @@ const ServerLinkEU = styled.a`
   font-size: 25px;
   cursor: pointer;
   text-decoration: none;
+  @media screen and (max-width: 760px) {
+    top: 110px;
+  }
 `;
