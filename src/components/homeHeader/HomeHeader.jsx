@@ -55,7 +55,7 @@ const LinkHome = styled.div`
   }
 `;
 
-const ServerLinkUS = styled.div`
+const ServerLinkUS = styled.a`
   position: absolute;
   top: 65px;
   right: 15px;
