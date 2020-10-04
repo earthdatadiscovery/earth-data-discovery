@@ -1,0 +1,14 @@
+version: "3"
+services:
+  client-dev:
+    build:
+      context: .
+      dockerfile: .docker/client/Dockerfile.dev
+    container_name: edd-client-dev
+    ports:
+      - "3000:3000"
+    restart: always
+    stdin_open: true
+    volumes:
+      - ./:/edd
+      - /edd/node_modules

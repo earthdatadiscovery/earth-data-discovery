@@ -1,0 +1,10 @@
+version: "3"
+services:
+  client-prod:
+    build:
+      context: .
+      dockerfile: .docker/client/Dockerfile.prod
+    container_name: edd-client-prod
+    ports:
+      - "8000:80"
+    restart: always
