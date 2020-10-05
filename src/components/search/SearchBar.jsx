@@ -51,10 +51,11 @@ const SearchInput = styled.input`
 
 const TimeText = styled.span`
   color: #3dd2cc;
+  font-size: 19px;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   @media screen and (max-width: 760px) {
-    font-size: 12px;
+    font-size: 16px;
   }
 `;
 

@@ -49,7 +49,7 @@ const FiltersArrow = styled.div`
 const HeaderImage = styled.img`
   height: 10vw;
   position: relative;
-  @media screen and (max-width: 760px) {
+  @media screen and (max-width: 1000px) {
     height: 100px;
   }
 `;
