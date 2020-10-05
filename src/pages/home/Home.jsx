@@ -37,9 +37,6 @@ const WrapperHome = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  @media screen and (max-width: 760px) {
-    overflow: unset;
-  }
 `;
 
 const FiltersArrow = styled.div`

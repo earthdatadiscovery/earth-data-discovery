@@ -27,5 +27,7 @@ const WrapperFilters = styled.div`
   z-index: 2;
   @media screen and (max-width: 760px) {
     justify-content: center;
+    height: 250px;
+    overflow-y: scroll;
   }
 `;
