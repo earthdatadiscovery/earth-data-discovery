@@ -26,23 +26,46 @@ export default function SearchBar() {
   React.useEffect(() => {}, [state.result]);
 
   return (
-    <SearchInput
-      type="text"
-      value={searchedValue}
-      onChange={(event) => setSearchedValue(event.target.value)}
-      className="px-6 py-4 w-full text-black"
-      placeholder="Search"
-    />
+    <WrapperSearch>
+      <TimeText>
+        {`${state.nbHits} datasets`}{" "}
+        {!!state.responseTime &&
+          ` | Search processed in ${state.responseTime}ms`}
+      </TimeText>
+      <SearchInput
+        type="text"
+        value={searchedValue}
+        onChange={(event) => setSearchedValue(event.target.value)}
+        className="px-6 py-4 w-full text-black"
+        placeholder="Search"
+      />
+    </WrapperSearch>
   );
 }
 
 const SearchInput = styled.input`
-  width: 60%;
+  width: 100%;
   height: 40px;
   border-radius: 9px;
   border: none;
   padding-left: 15px;
   font-size: 21px;
+`;
+
+const TimeText = styled.span`
+  color: #3dd2cc;
+  text-align: center;
+  margin-bottom: 5px;
+  @media screen and (max-width: 760px) {
+    font-size: 12px;
+  }
+`;
+
+const WrapperSearch = styled.div`
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   @media screen and (max-width: 760px) {
     width: 80%;
   }

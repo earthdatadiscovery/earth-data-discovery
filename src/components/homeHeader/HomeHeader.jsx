@@ -77,7 +77,7 @@ const ServerLinkUS = styled.a`
   cursor: pointer;
   text-decoration: none;
   @media screen and (max-width: 760px) {
-    top: 180px;
+    top: 198px;
     right: 15px;
   }
 `;
@@ -92,6 +92,6 @@ const ServerLinkEU = styled.a`
   cursor: pointer;
   text-decoration: none;
   @media screen and (max-width: 760px) {
-    top: 179px;
+    top: 197px;
   }
 `;

@@ -5,6 +5,7 @@ import {
   setSearchValue,
   setFacets,
   addResult,
+  setInfoResults,
 } from "../actions/store";
 import MeiliSearch from "meilisearch";
 
@@ -53,6 +54,7 @@ export function useMeili() {
     if (!offset) {
       dispatch(setSearchValue(toSearch));
       dispatch(setResult(search.hits));
+      dispatch(setInfoResults(search));
     } else dispatch(addResult(search.hits));
   }
 

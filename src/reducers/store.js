@@ -6,6 +6,7 @@ import {
   SET_FACET_FILTERS,
   ADD_FILTER,
   REMOVE_FILTER,
+  SET_INFO_RESULTS,
 } from "./../actions/store";
 
 export const initialState = {
@@ -14,6 +15,8 @@ export const initialState = {
   facets: [],
   timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   facetFilters: {},
+  responseTime: 0,
+  nbHits: 0,
 };
 
 export default function reducer(state = initialState, action) {
@@ -24,6 +27,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, result: [...state.result, ...action.result] };
     case SET_SEARCH_VALUE:
       return { ...state, searchValue: action.searchValue };
+    case SET_INFO_RESULTS:
+      return { ...state, responseTime: action.time, nbHits: action.nbHits };
     case SET_FACETS:
       return { ...state, facets: action.facets };
     case SET_FACET_FILTERS:

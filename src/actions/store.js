@@ -5,6 +5,7 @@ export const ADD_RESULT = "ADD_RESULT";
 export const SET_FACET_FILTERS = "SET_FACET_FILTERS";
 export const ADD_FILTER = "ADD_FILTER";
 export const REMOVE_FILTER = "REMOVE_FILTER";
+export const SET_INFO_RESULTS = "SET_INFO_RESULTS";
 
 export const setResult = (result) => ({
   type: SET_RESULT,
@@ -41,4 +42,10 @@ export const removeFilter = (name, filter) => ({
   type: REMOVE_FILTER,
   name: name,
   filter: filter,
+});
+
+export const setInfoResults = (search) => ({
+  type: SET_INFO_RESULTS,
+  time: search.processingTimeMs,
+  nbHits: search.nbHits,
 });
