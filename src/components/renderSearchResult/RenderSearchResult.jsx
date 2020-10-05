@@ -22,6 +22,7 @@ export default function RenderSearchResult() {
         offset: scrollOffsetSteps,
         toSearch: state.searchValue,
         attributesToCrop: ["summary"],
+        facetsDistribution: ["*"],
         cropLength: 50,
         attributesToHighlight: ["*"],
         matches: true,

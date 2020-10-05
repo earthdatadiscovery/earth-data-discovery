@@ -48,4 +48,5 @@ export const setInfoResults = (search) => ({
   type: SET_INFO_RESULTS,
   time: search.processingTimeMs,
   nbHits: search.nbHits,
+  facets: search.facetsDistribution,
 });

@@ -4,16 +4,9 @@ import SearchBar from "./../../components/search/SearchBar";
 import HomeHeader from "./../../components/homeHeader/HomeHeader";
 import Filters from "./../../components/homeFilters/Filters";
 import RenderSearchResult from "./../../components/renderSearchResult/RenderSearchResult";
-import { useMeili } from "./../../hooks/useMeili";
 
 export default function Home() {
-  const { getFacets } = useMeili();
-
   const [showFilters, setShowFilters] = React.useState(false);
-
-  React.useEffect(() => {
-    getFacets();
-  }, []);
 
   return (
     <WrapperHome>

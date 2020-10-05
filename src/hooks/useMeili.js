@@ -55,6 +55,7 @@ export function useMeili() {
       dispatch(setSearchValue(toSearch));
       dispatch(setResult(search.hits));
       dispatch(setInfoResults(search));
+      // dispatch(setFacets(search.facetsDistribution));
     } else dispatch(addResult(search.hits));
   }
 

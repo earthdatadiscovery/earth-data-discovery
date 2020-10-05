@@ -13,6 +13,12 @@ export default function Filter({ name, filters }) {
       dispatch(removeFilter(name, filter));
     }
   };
+
+  const isFilterSelected = (name) => {
+    if (state?.facetFilters[name] === undefined) return false;
+    return true;
+  };
+
   return (
     <WrapperFilter>
       <FilterName>{name}</FilterName>
@@ -20,20 +26,22 @@ export default function Filter({ name, filters }) {
         {Object.entries(filters || {})
           .sort((a, b) => b[1] - a[1])
           .map(([namefilter, nbfilter], index) => {
-            return (
-              <div namefilter={namefilter} key={`${index}-${namefilter}`}>
-                <label>
-                  <input
-                    type="checkbox"
-                    name={namefilter}
-                    onChange={(event) =>
-                      onChangeCheck(event.target, namefilter, name)
-                    }
-                  />
-                </label>
-                <FilterNameCheck>{`${namefilter} (${nbfilter})`}</FilterNameCheck>
-              </div>
-            );
+            if (nbfilter > 0)
+              return (
+                <div namefilter={namefilter} key={`${index}:${namefilter}`}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name={namefilter}
+                      checked={isFilterSelected(`${name}:${namefilter}`)}
+                      onChange={(event) =>
+                        onChangeCheck(event.target, namefilter, name)
+                      }
+                    />
+                  </label>
+                  <FilterNameCheck>{`${namefilter} (${nbfilter})`}</FilterNameCheck>
+                </div>
+              );
           })}
       </WrapperFiltersSelected>
     </WrapperFilter>

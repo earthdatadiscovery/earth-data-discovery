@@ -28,7 +28,12 @@ export default function reducer(state = initialState, action) {
     case SET_SEARCH_VALUE:
       return { ...state, searchValue: action.searchValue };
     case SET_INFO_RESULTS:
-      return { ...state, responseTime: action.time, nbHits: action.nbHits };
+      return {
+        ...state,
+        responseTime: action.time,
+        nbHits: action.nbHits,
+        facets: action.facets,
+      };
     case SET_FACETS:
       return { ...state, facets: action.facets };
     case SET_FACET_FILTERS:

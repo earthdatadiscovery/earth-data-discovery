@@ -15,13 +15,10 @@ export default function SearchBar() {
       cropLength: 50,
       attributesToHighlight: ["*"],
       facetFilters: state.facetFilters,
+      facetsDistribution: ["*"],
       matches: true,
     });
   }, [searchedValue, state.facetFilters]);
-
-  // React.useEffect(() => {
-  //   getFacets();
-  // }, [state.facetFilters]);
 
   React.useEffect(() => {}, [state.result]);
 
