@@ -7,8 +7,13 @@ export default function HomeHeader({ about, children }) {
 
   return (
     <WrapperHomeHeader about={about ? 1 : 0}>
-      <LinkAboutUs onClick={() => navigate("/about")}>About us</LinkAboutUs>
-      <LinkHome onClick={() => navigate("")}>Home</LinkHome>
+      <LinkOS href={"https://github.com/earthdatadiscovery/"}>
+        Open source
+      </LinkOS>
+      {!about && (
+        <LinkAboutUs onClick={() => navigate("/about")}>About us</LinkAboutUs>
+      )}
+      {about && <LinkHome onClick={() => navigate("")}>Home</LinkHome>}
       <ServerLinkUS href={"https://us.earthdatadiscovery.co/"}>
         <FlagImage src={require("../../assets/usa.svg")} alt="usa_flag" />
       </ServerLinkUS>
@@ -39,39 +44,46 @@ const WrapperHomeHeader = styled.div`
 `;
 
 const LinkAboutUs = styled.div`
-  color: white;
+  // color: white;
+  color: #3dd2cc;
   font-size: 18px;
   position: absolute;
   top: 15px;
   right: 15px;
   text-decoration: none;
   cursor: pointer;
-  @media screen and (max-width: 760px) {
-    top: 15px;
-    right: "unset";
-    left: 20px;
-  }
+`;
+
+const LinkOS = styled.a`
+  color: #c4c9cc;
+  background-color: #303c44;
+  // color: #3dd2cc;
+  padding: 7px;
+  font-size: 16px;
+  border-radius: 5px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  text-decoration: none;
+  cursor: pointer;
 `;
 
 const LinkHome = styled.div`
-  color: white;
+  // color: white;
+  color: #3dd2cc;
   font-size: 18px;
   position: absolute;
-  top: 40px;
-  right: 38px;
+  top: 15px;
+  right: 15px;
   text-decoration: none;
   cursor: pointer;
-  @media screen and (max-width: 760px) {
-    top: 15px;
-    right: 20px;
-  }
 `;
 
 const ServerLinkUS = styled.a`
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 70px;
+  top: 45px;
   right: 15px;
   font-size: 25px;
   cursor: pointer;
@@ -86,7 +98,7 @@ const ServerLinkEU = styled.a`
   width: 32px;
   height: 32px;
   position: absolute;
-  top: 69px;
+  top: 45px;
   right: 60px;
   font-size: 25px;
   cursor: pointer;

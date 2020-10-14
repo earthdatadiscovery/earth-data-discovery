@@ -53,3 +53,13 @@ const HeaderImage = styled.img`
     height: 100px;
   }
 `;
+
+const OSText = styled.span`
+  color: #3dd2cc;
+  font-size: 19px;
+  text-align: left;
+  margin-bottom: 6px;
+  @media screen and (max-width: 760px) {
+    font-size: 16px;
+  }
+`;

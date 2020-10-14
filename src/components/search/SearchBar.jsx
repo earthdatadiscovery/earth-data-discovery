@@ -24,11 +24,6 @@ export default function SearchBar() {
 
   return (
     <WrapperSearch>
-      <TimeText>
-        {`${state.nbHits} datasets`}{" "}
-        {!!state.responseTime &&
-          ` | Search processed in ${state.responseTime}ms`}
-      </TimeText>
       <SearchInput
         type="text"
         value={searchedValue}
@@ -36,6 +31,11 @@ export default function SearchBar() {
         className="px-6 py-4 w-full text-black"
         placeholder="Search"
       />
+      <TimeText>
+        {`${state.nbHits} datasets`}{" "}
+        {!!state.responseTime &&
+          ` | Search processed in ${state.responseTime}ms`}
+      </TimeText>
     </WrapperSearch>
   );
 }
@@ -53,7 +53,9 @@ const TimeText = styled.span`
   color: #3dd2cc;
   font-size: 19px;
   text-align: center;
-  margin-bottom: 6px;
+  margin-top: 6px;
+
+  // margin-bottom: 6px;
   @media screen and (max-width: 760px) {
     font-size: 16px;
   }
