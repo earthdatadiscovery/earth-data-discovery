@@ -19,6 +19,7 @@ const client = new MeiliSearch({
 });
 
 const index = client.getIndex("earthdata");
+let lastid = 0;
 
 export function useMeili() {
   const { state, dispatch } = React.useContext(StoreContext);
@@ -37,6 +38,8 @@ export function useMeili() {
     attributesToHighlight = null,
     matches = null,
   }) {
+    const id = lastid + 1;
+    lastid = id;
     if (facetFilters != null) facetFilters = getCorrectFacets(facetFilters);
     if (toSearch === "") toSearch = null;
     const search = await index.search(toSearch, {
@@ -51,12 +54,14 @@ export function useMeili() {
       attributesToHighlight,
       matches,
     });
-    if (!offset) {
-      dispatch(setSearchValue(toSearch));
-      dispatch(setResult(search.hits));
-      dispatch(setInfoResults(search));
-      // dispatch(setFacets(search.facetsDistribution));
-    } else dispatch(addResult(search.hits));
+    if (id === lastid) {
+      if (!offset) {
+        dispatch(setSearchValue(toSearch));
+        dispatch(setResult(search.hits));
+        dispatch(setInfoResults(search));
+        // dispatch(setFacets(search.facetsDistribution));
+      } else dispatch(addResult(search.hits));
+    } else { console.log("Abort the mission!")}
   }
 
   async function getDocument(id) {
