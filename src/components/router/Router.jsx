@@ -8,9 +8,13 @@ export default function Router() {
   const { state } = React.useContext(StoreContext);
 
   React.useEffect(() => {
-    if (state?.timezone.split("/")[0] === "America") {
-      window.location.href = "https://us.earthdatadiscovery.co";
-      return null;
+    const regex = /^https?:\/\/eu.earthdatadiscovery\.co.*/;
+
+    if (window.location.href.match(regex)) {
+      if (state?.timezone.split("/")[0] === "America") {
+        window.location.href = "https://us.earthdatadiscovery.co";
+        return null;
+      }
     }
   }, [state.timezone]);
 
