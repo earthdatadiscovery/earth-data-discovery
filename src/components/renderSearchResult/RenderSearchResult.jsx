@@ -17,7 +17,7 @@ export default function RenderSearchResult() {
 
   const handleScroll = (e) => {
     const target = e.target;
-    if (target.scrollHeight - target.scrollTop === target.clientHeight) {
+    if (Math.round(target.scrollHeight - target.scrollTop) === target.clientHeight) {
       search({
         offset: scrollOffsetSteps,
         toSearch: state.searchValue,
@@ -53,7 +53,6 @@ const WrapperSearchResult = styled.div`
   justify-content: ${(props) => (props.noResult ? "center" : "space-around")};
   align-items: ${(props) => (props.noResult ? "center" : "space-around")};
   flex-wrap: wrap;
-  max-height: 80%;
   overflow-y: scroll;
   padding: 20px;
 `;

@@ -30,6 +30,8 @@ const WrapperHome = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  display: inline-flex;
+  flex-direction: column;
 `;
 
 const FiltersArrow = styled.div`
